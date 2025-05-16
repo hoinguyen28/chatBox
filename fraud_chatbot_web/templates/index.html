@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -79,6 +80,8 @@
             background-color: #e2e8f0;
             color: #111;
             border-bottom-left-radius: 0;
+            white-space: pre-wrap;
+            font-family: "Courier New", monospace;
         }
 
         .message .avatar {
@@ -152,7 +155,16 @@
 
             const bubble = document.createElement('div');
             bubble.className = 'bubble';
-            bubble.innerHTML = message;
+
+            if (sender === 'bot') {
+                bubble.innerHTML = message.replace(/\n/g, "<br>");
+                if (message.includes("💡 [Cảnh báo]")) {
+                    bubble.style.backgroundColor = "#fef3c7";
+                    bubble.style.color = "#92400e";
+                }
+            } else {
+                bubble.textContent = message;
+            }
 
             if (sender === 'user') {
                 msgDiv.appendChild(bubble);
