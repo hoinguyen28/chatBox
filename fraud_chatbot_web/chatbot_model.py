@@ -34,15 +34,15 @@ class ChatbotPhongChongLuaDao:
     def map_label_to_text(self, label):
         mapping = {
             'trung_thuong': 'Lừa đảo trúng thưởng',
-            'phishing': 'Giả mạo (Phishing)',
+            'phishing': 'Lừa đảo giả mạo (Phishing)',
             'dau_tu': 'Lừa đảo đầu tư',
             'tai_chinh': 'Lừa đảo tài chính',
             'mua_sam': 'Lừa đảo mua sắm',
             'viec_lam': 'Lừa đảo việc làm',
             'ho_tro': 'Lừa đảo hỗ trợ kỹ thuật',
-            'gia_mao_nguoi_than': 'Giả mạo người thân',
+            'gia_mao_nguoi_than': 'Lừa đảo giả mạo người thân',
             'tin_dung': 'Lừa đảo tín dụng',
-            'hop_le': 'Nội dung bình thường'
+            'hop_le': 'Nội dung bình thường không có dấu hiệu lừa đảo'
         }
         return mapping.get(label, label)
 
@@ -93,7 +93,7 @@ class ChatbotPhongChongLuaDao:
 
             # In ra kết quả
             for rule in unique_rules:
-                response.append(f"• Loại: {rule['fraud_type']} — Tin cậy: {rule['confidence']*100:.1f}%")
+                response.append(f"• Loại: {rule['fraud_type']}")
                 response.append(f"  ➤ Khuyến nghị: {rule['advice']}")
             response.append("")
 
@@ -113,5 +113,5 @@ class ChatbotPhongChongLuaDao:
             response.append("Nội dung có dấu hiệu RỦI RO CAO.")
             response.append("❗ Hãy xác minh nguồn gốc trước khi cung cấp thông tin hoặc chuyển tiền.")
 
-        response.append("🛡️=====================================🛡️")
+        response.append("🛡️=======================================🛡️")
         return "\n".join(response)
