@@ -73,7 +73,7 @@ class ChatbotPhongChongLuaDao:
         risk_level = self.fuzzy_risk_evaluation(top_prob)
 
         response = []
-        response.append("🛡️========== KẾT QUẢ PHÂN TÍCH ==========🛡️")
+        response.append("🛡️============== KẾT QUẢ PHÂN TÍCH ==============🛡️")
 
         if rules:
             response.append("📏 [Phát hiện theo luật]")
@@ -113,5 +113,5 @@ class ChatbotPhongChongLuaDao:
             response.append("Nội dung có dấu hiệu RỦI RO CAO.")
             response.append("❗ Hãy xác minh nguồn gốc trước khi cung cấp thông tin hoặc chuyển tiền.")
 
-        response.append("🛡️=======================================🛡️")
+        response.append("🛡️===========================================🛡️")
         return "\n".join(response)
